@@ -2,7 +2,7 @@
 
 **Aplicação web para leitura digital, organização de bibliotecas pessoais e acompanhamento de hábitos de leitura.**
 
-O LECTOR é um projeto de leitor digital desenvolvido como uma *Progressive Web App* (PWA). Reúne recursos de leitura, gestão de acervo e acompanhamento de progresso em uma interface responsiva e personalizável, priorizando o controle dos dados pelo usuário.
+O Lector é um projeto de leitor digital desenvolvido como uma *Progressive Web App* (PWA). Reúne recursos de leitura, gestão de acervo e acompanhamento de progresso em uma interface responsiva e personalizável, priorizando o controle dos dados pelo usuário.
 
 ## Funcionalidades
 
@@ -70,7 +70,7 @@ Lector/
 
 ## Privacidade e persistência
 
-O LECTOR prioriza o armazenamento local: os arquivos dos livros permanecem no dispositivo. A integração com o Supabase é opcional e utilizada para sincronizar informações compatíveis com esse recurso.
+O Lector prioriza o armazenamento local: os arquivos dos livros permanecem no dispositivo. A integração com o Supabase é opcional e utilizada para sincronizar informações compatíveis com esse recurso.
 
 A persistência local depende das condições de armazenamento do navegador. Por isso, o projeto inclui mecanismos de backup e restauração.
 

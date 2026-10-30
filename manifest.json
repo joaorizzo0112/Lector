@@ -1,0 +1,40 @@
+{
+  "id": "./",
+  "name": "LECTOR",
+  "short_name": "LECTOR",
+  "description": "Biblioteca pessoal para PDF, EPUB, mangás e HQs, com leitura offline, pesquisa, estatísticas, backups e sincronização opcional.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#20242c",
+  "theme_color": "#20242c",
+  "categories": [
+    "books",
+    "education",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "prefer_related_applications": false
+}

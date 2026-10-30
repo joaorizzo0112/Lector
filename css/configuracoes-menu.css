@@ -1,0 +1,41 @@
+
+
+
+
+
+#cfg #tabs .cfg-nav-group button{
+  justify-content:flex-start;
+  align-items:center;
+  text-align:left;
+  min-width:0;
+}
+#cfg #tabs .cfg-nav-group button > .cfg-tab-icon{
+  width:20px;
+  min-width:20px;
+  height:22px;
+  flex:0 0 20px;
+  display:inline-grid;
+  place-items:center;
+}
+#cfg #tabs .cfg-nav-group button > span:last-child{
+  min-width:0;
+  text-align:left;
+}
+#cfg #tabs .cfg-nav-group button.on,
+#cfg #tabs .cfg-nav-group button.on:hover{
+  color:var(--accent-fg,#fff)!important;
+}
+#cfg #tabs .cfg-nav-group button.on > .cfg-tab-icon,
+#cfg #tabs .cfg-nav-group button.on > .cfg-tab-icon svg{
+  color:var(--accent-fg,#fff)!important;
+  opacity:1;
+}
+#cfg #tabs .cfg-nav-group button.on > .cfg-tab-icon svg{
+  stroke:currentColor;
+}
+@media(max-width:800px){
+  #cfg #tabs .cfg-nav-group button{width:auto;flex:none}
+  #cfg #tabs .cfg-nav-group button > .cfg-tab-icon{
+    width:18px;min-width:18px;flex-basis:18px;
+  }
+}

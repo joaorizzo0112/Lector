@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lector</title>
+<meta name="theme-color" content="#8a6a55"><link rel="manifest" href="manifest.json"><link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
+<script src="libs/jszip.min.js"></script>
+<script src="libs/epub.min.js"></script>
+<script src="libs/pdf.min.js"></script>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/temas-perfis.css">
+<link rel="stylesheet" href="css/leitura-anotacoes.css">
+<link rel="stylesheet" href="css/pesquisa-ocr.css">
+<link rel="stylesheet" href="css/backup-estatisticas.css">
+<link rel="stylesheet" href="css/interface-responsiva.css">
+<link rel="stylesheet" href="css/acessibilidade.css">
+<link rel="stylesheet" href="css/lixeira-navegacao.css">
+<link rel="stylesheet" href="css/paletas.css">
+<link rel="stylesheet" href="css/painel-temas.css">
+<link rel="stylesheet" href="css/consistencia-visual.css">
+<link rel="stylesheet" href="css/estabilidade.css">
+<link rel="stylesheet" href="css/estatisticas-layout.css">
+<link rel="stylesheet" href="css/configuracoes-menu.css">
+<link rel="stylesheet" href="css/biblioteca-filtros.css">
+<link rel="stylesheet" href="css/layout-creditos.css">
+<link rel="stylesheet" href="css/conta-nuvem.css">
+</head>
+<body>
+<div id="dim"></div><div id="warm"></div><dialog id="dlg"></dialog><div id="selbar" hidden></div><div id="upd" hidden></div><div id="nextbar" hidden></div><div id="backbar" hidden></div>
+
+<section id="login" aria-label="Escolher perfil">
+
+  <div class="login-shell">
+    <div class="center glass login-dialog">
+
+      <h1>Lector</h1>
+      <p class="login-intro">Escolha um perfil para continuar.</p>
+      <div class="login-section-title">SEUS PERFIS</div>
+      <div id="users" aria-label="Perfis disponíveis"></div>
+      <form id="pinf" hidden aria-label="Desbloquear perfil"><label for="pin" class="sr-only">PIN do perfil</label><input id="pin" type="password" inputmode="numeric" placeholder="PIN do perfil" autocomplete="off"><button class="primary" type="submit">Entrar</button></form>
+      <details id="newp"><summary>Criar novo perfil</summary>
+        <form id="nf"><label for="nn" class="sr-only">Nome do perfil</label><input id="nn" type="text" placeholder="Nome do perfil" maxlength="24" required><label for="np" class="sr-only">PIN opcional</label><input id="np" type="password" inputmode="numeric" placeholder="PIN opcional, 4+ dígitos" autocomplete="off"><button class="primary" type="submit">Criar perfil</button></form>
+      </details>
+      <p class="login-privacy">Os livros e perfis permanecem neste dispositivo.</p>
+    </div>
+    <div class="login-credits" aria-label="Créditos do projeto">Desenvolvido por <a href="https://github.com/joaorizzo0112" target="_blank" rel="noopener noreferrer" aria-label="GitHub de @joaorizzo0112">@joaorizzo0112</a></div>
+  </div>
+</section>
+
+<section id="lib" hidden>
+<a class="skip-to-content" href="#mainContent">Ir para o conteúdo principal</a>
+<header id="libbar"><div class="bar-in">
+  <div class="brand" aria-label="Lector">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-name">Lector</span>
+  </div>
+  <nav id="ltabs" role="tablist" aria-label="Seções"></nav>
+  <div class="top-actions">
+    <label class="glass search"><span aria-hidden="true">⌕</span><input id="q" type="search" placeholder="Buscar na biblioteca" aria-label="Buscar"><kbd aria-hidden="true">/</kbd></label>
+    <button class="primary" id="add" aria-label="Adicionar livros"><span class="pl">+</span><span class="lbl"> Adicionar livros</span></button>
+    <button type="button" id="lectorCloudTop" class="lector-icon-button" aria-label="Sincronização" title="Sincronização"></button>
+    <button type="button" id="lectorTrashTop" class="lector-icon-button" aria-label="Lixeira" title="Lixeira"></button>
+    <button type="button" id="lectorSettingsTop" class="lector-icon-button" aria-label="Configurações" title="Configurações"></button>
+    <div class="avw" hidden aria-hidden="true"><button class="av" id="av" aria-label="Menu do perfil" aria-haspopup="true" aria-expanded="false" aria-controls="avm"></button>
+      <div class="glass pop profile-menu" id="avm" role="menu" aria-label="Menu do perfil" hidden>
+        <div class="profile-menu-header">
+          <span class="av profile-menu-avatar" id="avpreview" aria-hidden="true"></span>
+          <span class="profile-menu-identity"><b id="avn"></b><small>Biblioteca pessoal</small></span>
+        </div>
+        <div class="profile-menu-theme">
+          <span class="profile-menu-caption">Aparência rápida · temas completos em Configurações</span>
+          <div class="seg" id="avth" role="group" aria-label="Tema"><button data-a="light" aria-label="Claro">☀ <span>Claro</span></button><button data-a="dark" aria-label="Escuro">☾ <span>Escuro</span></button><button data-a="auto" aria-label="Automático">Auto</button></div>
+        </div>
+        <div class="profile-menu-links">
+          <button id="avaccount" role="menuitem"><span class="pm-icon" aria-hidden="true">◉</span> Meu perfil <span class="pm-arrow" aria-hidden="true">›</span></button>
+          <button id="cfgBtn" role="menuitem"><span class="pm-icon" aria-hidden="true">⚙</span> Configurações <span class="pm-arrow" aria-hidden="true">›</span></button>
+          <button id="avdata" role="menuitem"><span class="pm-icon" aria-hidden="true">▤</span> Backup e dados <span class="pm-arrow" aria-hidden="true">›</span></button>
+          <button id="avinst" role="menuitem" hidden><span class="pm-icon" aria-hidden="true">⇩</span> Instalar aplicativo <span class="pm-arrow" aria-hidden="true">›</span></button>
+        </div>
+        <div class="profile-menu-footer"><button id="out" role="menuitem"><span aria-hidden="true">↪</span> Sair do perfil</button></div>
+      </div>
+    </div>
+  </div>
+</div></header>
+<aside id="lectorRail" class="lector-rail" aria-label="Navegação principal no desktop">
+  <div class="lector-rail-group-label">SUA BIBLIOTECA</div>
+  <nav class="lector-rail-nav" aria-label="Seções do LECTOR">
+    <button type="button" data-lector-nav="home"><span class="lector-rail-icon" aria-hidden="true"></span>Início</button>
+    <button type="button" data-lector-nav="lib"><span class="lector-rail-icon" aria-hidden="true"></span>Biblioteca</button>
+    <button type="button" data-lector-nav="shelves"><span class="lector-rail-icon" aria-hidden="true"></span>Estantes</button>
+    <button type="button" data-lector-nav="vocab"><span class="lector-rail-icon" aria-hidden="true"></span>Vocabulário</button>
+    <button type="button" data-lector-nav="stats"><span class="lector-rail-icon" aria-hidden="true"></span>Estatísticas</button>
+  </nav>
+  <div class="lector-rail-group-label lector-rail-more">CONTEÚDO</div>
+  <nav class="lector-rail-content" aria-label="Acessos à biblioteca">
+    <button type="button" id="lectorFavNav" class="lector-rail-settings"><span class="lector-rail-icon" aria-hidden="true"></span><span>Favoritos</span></button>
+    <button type="button" id="lectorNotesNav" class="lector-rail-settings"><span class="lector-rail-icon" aria-hidden="true"></span><span>Anotações</span></button>
+    <button type="button" id="lectorTrashNav" class="lector-rail-settings"><span class="lector-rail-icon" aria-hidden="true"></span><span>Lixeira</span><small id="lectorTrashBadge" aria-live="polite"></small></button>
+  </nav>
+  <div class="lector-rail-bottom">
+    <button type="button" id="lectorSyncNav" class="lector-rail-settings lector-sync-nav" aria-label="Abrir Sincronização — modo local">
+      <span class="lector-rail-icon lector-sync-icon" aria-hidden="true"></span>
+      <span class="lector-sync-copy"><strong>Sincronização</strong><small id="lectorSyncCaption">Modo local</small></span>
+      <span class="lector-sync-indicator" aria-hidden="true"></span>
+      <span class="lector-sync-chevron" aria-hidden="true">›</span>
+    </button>
+    <button type="button" id="lectorRailSettings" class="lector-rail-settings"><span class="lector-rail-icon" aria-hidden="true"></span><span>Configurações</span><span class="lector-settings-chevron" aria-hidden="true">›</span></button>
+  </div>
+</aside>
+<div class="wrap" id="mainContent" tabindex="-1" role="main" aria-label="Conteúdo principal">
+  <div id="v-home" class="home">
+    <div class="main">
+      <div id="cont" class="glass herom"><div class="car" id="car"></div><div class="dots" id="dots"></div>
+        <button class="carb" id="cprev" aria-label="Anterior">‹</button><button class="carb" id="cnext" aria-label="Próximo">›</button></div>
+      <div id="resume" class="resume-section" hidden></div>
+      <div id="secs"></div>
+      <div id="onb" class="glass onb" hidden></div>
+    </div>
+    <aside class="side" aria-label="Painel de Resumo">
+      <div class="lector-summary-toolbar">
+        <strong>Painel de Resumo</strong>
+        <button type="button" id="lectorSummaryToggle" aria-controls="goalc stats notes vcard" aria-expanded="true" title="Recolher Painel de Resumo" aria-label="Recolher Painel de Resumo">
+          <span class="lector-summary-toggle-icon" aria-hidden="true">⟩</span><span class="lector-summary-toggle-text">Recolher</span>
+        </button>
+      </div>
+      <div id="goalc" class="glass goalc">
+        <div class="ringw"><svg viewBox="0 0 120 120" class="ring" aria-hidden="true"><circle class="rb" cx="60" cy="60" r="52"/><circle class="rf" id="rf" cx="60" cy="60" r="52"/></svg>
+          <div class="rt"><b id="gm">0</b><span>min hoje</span></div></div>
+        <div class="gi"><b>Meta de leitura</b><small id="gt2"></small><button id="goal">Alterar meta</button></div>
+      </div>
+      <div id="stats" class="statsrow"></div>
+      <div id="notes" class="glass sidec" hidden></div>
+      <div id="vcard" class="glass sidec" hidden></div>
+    </aside>
+  </div>
+  <div id="v-lib" hidden>
+    <div class="shr" id="coll"><h3 class="sh">Coleção <small id="cnt"></small></h3>
+      <div class="tools"><div class="exw"><button class="chip glass" id="exb" aria-haspopup="true" aria-expanded="false">⚙ Exibir</button>
+        <div class="glass pop" id="exm" hidden>
+          <label class="exr"><span>Formato</span><select id="fmt" class="sel" aria-label="Formato"><option value="all">Todos os formatos</option><option value="epub">EPUB</option><option value="pdf">PDF</option><option value="cbz">CBZ</option><option value="txt">TXT</option></select></label>
+          <label class="exr"><span>Ordenar</span><select id="srt" class="sel" aria-label="Ordenar"><option value="recent">Recentes</option><option value="title">Título</option><option value="prog">Progresso</option><option value="author">Autor</option><option value="added">Data de adição</option></select></label>
+          <div class="exr"><span>Visualização</span><div class="seg"><button id="vg">Grade</button><button id="vl">Lista</button></div></div>
+          <label class="exr ex"><span>Tamanho das capas</span><input id="cs" type="range" min="110" max="240" step="10" aria-label="Tamanho das capas"></label>
+        </div></div>
+        <button class="chip glass" id="selm">Selecionar</button></div></div>
+    <div id="chips" class="chips"></div>
+    <div id="grid"></div>
+    <div id="lbar" class="glass" hidden></div>
+  </div>
+  <div id="v-shelves" hidden></div>
+  <div id="v-vocab" hidden></div>
+  <div id="v-stats" hidden></div>
+  <div id="qm" class="glass qmenu" hidden></div>
+</div>
+<nav id="lbn" role="tablist" aria-label="Navegação entre seções"></nav>
+<div id="viewStatus" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+<div id="drop" hidden>Solte os arquivos para adicionar</div>
+</section>
+
+<section id="cfg" hidden>
+<header id="cfgbar"><div class="bar-in"><button id="cfgBack">‹ Biblioteca</button><h2 class="ttl">Configurações</h2>
+  <label class="glass search"><span aria-hidden="true">⌕</span><input id="cfq" type="search" placeholder="Buscar nas configurações" aria-label="Buscar nas configurações"></label></div></header>
+<div class="wrap">
+  <div class="cfgl"><nav id="tabs" class="glass" aria-label="Seções"></nav><div id="pane"></div></div>
+</div></section>
+
+<section id="reader" hidden>
+  <header class="bar" aria-label="Ferramentas de leitura">
+    <button id="back" aria-label="Voltar à biblioteca">‹ Biblioteca</button>
+    <div id="title"></div>
+    <nav id="readerTools" aria-label="Ajustes rápidos de leitura">
+      <button id="quickSmaller" class="reader-adjust" type="button" aria-label="Diminuir zoom da leitura" title="Diminuir zoom">A−</button>
+      <button id="quickLarger" class="reader-adjust" type="button" aria-label="Aumentar zoom da leitura" title="Aumentar zoom">A+</button>
+      <button id="quickTheme" class="reader-adjust" type="button" aria-label="Alternar tema da leitura" title="Alternar entre Original, Quieto e Calmo">◐</button>
+      <button id="focusToggle" type="button" aria-pressed="false" aria-label="Ativar modo foco" title="Modo foco (tecla F)">⛶ Foco</button>
+    </nav>
+    <span id="fT" style="min-width:90px;text-align:right;font-size:12px;opacity:.7"></span>
+    <button id="fs" aria-label="Tela cheia" title="Tela cheia">⛶</button>
+  </header>
+  <div id="pb"><div id="bar"></div></div>
+  <div id="stage">
+    <div id="epub" hidden></div><div id="pg" hidden></div><div id="txt" hidden></div>
+    <button class="edge" id="L" aria-label="Anterior">‹</button><button class="edge" id="R" aria-label="Próxima">›</button>
+  </div>
+  <footer><span id="fL"></span><span id="fC"></span><span id="fR"></span></footer>
+  <button id="fab" aria-label="Menu">☰</button>
+  <button id="focusHandle" type="button" aria-label="Mostrar controles da leitura" title="Mostrar controles (tecla F para sair)">☰ <span>Controles</span></button>
+</section>
+
+<div id="menu" hidden><button id="mToc">Sumário</button><button id="mFind">Pesquisar no livro</button><button id="mBm">Marcadores</button><button id="mHl">Destaques e anotações</button><button id="mTh">Miniaturas</button><button id="mSelTxt">Selecionar texto</button><button id="mFocus">Modo foco</button><button id="mSet">Ajustes de leitura</button></div>
+<div id="sheet" hidden></div>
+<input type="file" id="cov" accept="image/jpeg,image/png,image/webp" hidden><input type="file" id="bak" accept=".zip" hidden>
+<input type="file" id="file" accept=".epub,.pdf,.cbz,.zip,.txt" multiple hidden>
+
+<script src="js/core.js"></script>
+<script src="js/armazenamento-perfis.js"></script>
+<script src="js/estatisticas-biblioteca.js"></script>
+<script src="js/biblioteca-operacoes.js"></script>
+<script src="js/leitura.js"></script>
+<script src="js/anotacoes.js"></script>
+<script src="js/pesquisa-ocr.js"></script>
+<script src="js/configuracoes-estatisticas.js"></script>
+<script src="js/backup.js"></script>
+<script src="js/nuvem.js"></script>
+<script src="js/interface.js"></script>
+<script src="js/lixeira-sincronizacao.js"></script>
+<script src="js/painel-resumo.js"></script>
+</body>
+</html>

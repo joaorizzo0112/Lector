@@ -1,0 +1,79 @@
+
+
+
+
+:root{--accent-ink:var(--accent);--ui-focus-ink:var(--accent);--accent-dark-fg:var(--accent-fg)}
+
+
+button.primary,button.primary:hover,
+#cfg #tabs button.on,#cfg #tabs button.on:hover,
+#lib .chip.on,#lib #ltabs button.on,
+#reader #focusToggle[aria-pressed="true"],
+#reader #readerTools button:hover,
+#reader #sheet.read-sheet .read-tabs button.on,
+#sheet.search-documento .search156-buttons button.primary,
+#sheet.search-rapida .fastsearch-btn-primary,
+#lib .analytics-range button.on,
+#cfg .account-profile .profile-choices button.on,
+#lib .seg button.on,#cfg .seg button.on{color:var(--accent-fg,#fff)!important}
+button.primary:hover{color:var(--accent-dark-fg,var(--accent-fg,#fff))!important}
+
+
+#lib #v-stats .metric-icon,
+#lib #v-stats .lector-eyebrow,
+#lib #v-stats .analytics-tile .metric-icon,
+#lib #v-home .statsrow .stc .stat-icon,
+#cfg .cfg-tab-icon,
+#cfg .cfg-nav-icon,
+#lib #lectorRail .lector-rail-settings .lector-rail-icon,
+#cfg .lector-palette-summary-name+span{
+  color:var(--accent-ink,var(--accent));
+}
+
+
+#lib #v-home .stat-icon svg,
+#lib #v-stats .metric-icon svg,
+#lib #v-stats .stat-icon svg,
+#cfg .cfg-tab-icon svg,
+#lectorRail .lector-rail-icon svg,
+#lib #lbn svg{
+  display:block;width:20px;height:20px;min-width:20px;max-width:20px;
+  flex:0 0 20px;stroke-linejoin:round;stroke-linecap:round;
+}
+#lib #v-stats .metric-icon,
+#lib #v-stats .analytics-tile .metric-icon,
+#cfg .cfg-tab-icon,
+#lectorRail .lector-rail-icon{display:inline-grid;place-items:center;flex-shrink:0}
+
+
+:is(#lib,#cfg,#login,#reader,#sheet,#dlg) :is(button,a[href],input,select,textarea,summary,[role="button"]):focus-visible{
+  outline:3px solid var(--ui-focus-ink,var(--accent))!important;
+  outline-offset:3px!important;
+}
+#cfg .app-theme-choice:focus-visible{outline-offset:4px!important}
+#cfg .lector-palette-summary{cursor:pointer}
+#cfg .app-theme-choice[aria-pressed="true"]{border-color:var(--accent-ink,var(--accent))}
+
+
+#libbar .top-actions,#cfgbar .top-actions,
+#lib #v-home.home>.side,#lib #v-home.home>.main,#cfg .cfgl{min-width:0}
+#lib #v-home .statsrow .stc,
+#lib #v-stats .analytics-tile{min-width:0;overflow-wrap:break-word}
+#cfg .lector-theme-mode-actions button,
+#cfg .lector-theme-kinds button,
+#lib #lectorSummaryToggle{overflow-wrap:anywhere;white-space:normal}
+#lib #lectorSummaryToggle svg{width:18px;height:18px;flex:none}
+#lib #v-home .side button svg{flex-shrink:0}
+
+
+@media(max-width:600px){
+  #cfg .lector-palette-collapse>.app-theme-grid{min-width:0}
+  #cfg .app-theme-choice{min-width:0}
+  #cfg .lector-theme-mode-actions button{min-height:42px}
+  #lib #v-home .side{max-width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  #lib :is(.card,.stc,.lector-sync-nav),
+  #cfg :is(.app-theme-choice,.lector-palette-chevron),
+  #reader button,#sheet button{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}

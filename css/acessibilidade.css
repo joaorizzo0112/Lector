@@ -1,0 +1,236 @@
+
+:root{--ui-space-1:4px;--ui-space-2:8px;--ui-space-3:12px;--ui-space-4:16px;--ui-space-6:24px;
+ --ui-radius-sm:10px;--ui-radius-md:14px;--ui-radius-lg:20px;--ui-focus:3px solid var(--accent)}
+#cfg .cfg-tab-icon,#lectorRailSettings .lector-rail-icon,#avm .pm-icon{display:inline-grid;place-items:center;flex:0 0 20px;min-width:20px}
+#cfg .cfg-tab-icon svg,#avm .pm-icon svg{width:18px;height:18px}
+#libbar .brand-mark svg{width:20px;height:20px}
+#libbar .search>span svg,#cfgbar .search>span svg{width:18px;height:18px;display:block}
+#exb{display:inline-flex;align-items:center;gap:7px}
+#exb svg{width:15px;height:15px;flex:none}
+#v-stats .analytics-tile{gap:8px!important;min-height:138px}
+#v-stats .analytics-tile b{line-height:1.13}
+#v-stats .analytics-tile span{margin-top:0!important;opacity:1}
+#libbar .top-actions .profile-menu{max-width:min(340px,calc(100vw - 26px));max-height:min(75dvh,680px);overflow-y:auto;overscroll-behavior:contain}
+#libbar .profile-menu button{min-height:40px}
+#lectorRailSettings .lector-rail-icon svg{width:20px;height:20px}
+#storage-critical{position:fixed;z-index:9000;left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));bottom:calc(12px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;max-width:860px;margin:auto;padding:14px 16px;border:1px solid #df9964;border-radius:16px;background:#332419;color:#fff4e6;box-shadow:0 12px 38px #0009;font-size:13px;line-height:1.5}
+#storage-critical>span{flex:1}#storage-critical>svg{width:22px;height:22px;flex:none}
+#storage-critical button{background:#fff1e2;color:#332419;min-height:36px;border-radius:10px}
+@media(max-width:600px){#storage-critical{align-items:flex-start;flex-wrap:wrap;font-size:12px}#storage-critical>span{flex:1 1 calc(100% - 45px)}#storage-critical button{margin-left:auto}}
+@media(prefers-reduced-motion:reduce){#v-stats .analytics-tile,#lib .card,#cfg .app-theme-choice{animation:none!important;transition:none!important}}
+
+
+
+
+
+
+@media(min-width:1180px){
+
+  #libbar .brand{flex:0 0 218px;min-width:0}
+  #libbar .bar-in{gap:12px!important;justify-content:space-between}
+  #libbar .top-actions{margin-left:auto;flex:0 1 550px;min-width:0}
+  #libbar .search{max-width:330px!important;min-width:120px}
+  #libbar .bar-in,#cfgbar .bar-in{box-sizing:border-box}
+  #lectorRail{padding-top:24px}
+  #lectorRail .lector-rail-group-label:first-child{margin-top:2px;margin-bottom:15px}
+  #lib .wrap{padding-top:22px!important}
+}
+@media(min-width:1180px) and (max-height:680px){
+  #lectorRail{padding-top:14px}
+  #lectorRail .lector-rail-nav button{min-height:39px}
+  #lectorRail .lector-rail-more{margin-top:15px}
+}
+
+#lib #v-home{min-width:0}
+#v-home .main,#v-home .side{min-width:0}
+#v-home .side{position:static;top:auto}
+#lib #cont.herom{overflow:hidden}
+#lib #cont.herom .slide{min-height:245px;align-items:center}
+#lib #cont.herom .hero-cover{width:clamp(105px,11vw,148px);min-width:clamp(105px,11vw,148px);max-height:218px}
+#lib #cont.herom .slide .sb{min-width:0}
+#lib #cont.herom .sb h2{overflow-wrap:anywhere}
+#lib #cont.herom .dots{padding-bottom:9px}
+#v-home .resume-row .card,#v-home #secs .hrow .card{overflow:hidden;min-width:0}
+#v-home .hrow .card h3{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;min-height:2.8em;max-height:2.8em;overflow-wrap:anywhere}
+#v-home .hrow .card small{line-height:1.35;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+#v-home .statsrow{gap:10px!important}
+#v-home .statsrow .stc{min-height:102px;padding:13px 15px;gap:6px}
+#v-home .statsrow .stat-info b{font-size:clamp(19px,1.7vw,24px)}
+#v-home .statsrow .stat-info span{margin-top:4px}
+#v-home .statsrow .stc.stat-storage{min-height:84px}
+#v-home .goalc{min-height:132px;padding:16px;gap:14px}
+#v-home .goalc .ringw,#v-home .goalc .ring{width:88px;height:88px}
+#v-home .goalc .gi{min-width:0}
+#v-home .sidec{min-width:0;overflow:hidden}
+
+#v-home .note-section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+#v-home .note-section-head h4{margin:0;font-size:14px}
+#v-home .note-see-all{background:none;padding:6px;font-size:11px;color:var(--accent);flex:none}
+#v-home .note-entry{display:flex;flex-direction:column;align-items:flex-start;text-align:left;width:100%;gap:5px;
+ border-left:3px solid var(--note-color,var(--accent));padding:10px 12px;margin-top:8px;min-width:0}
+#v-home .note-entry .nm{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;
+ white-space:normal;overflow-wrap:anywhere;max-width:100%;line-height:1.4;font-size:12px}
+#v-home .note-entry small{max-width:100%;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px}
+#v-home .note-entry:hover{background:var(--soft)}
+
+#lib :is(.lector-rail button,.stc,.note-entry,.view-all,.hero-cover):focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media(min-width:1180px) and (max-width:1400px){
+  #v-home.home{grid-template-columns:minmax(0,1fr) minmax(265px,33%);gap:16px}
+  #lib #cont.herom .slide{padding:16px;gap:16px}
+  #lib #cont.herom .hero-cover{width:115px;min-width:115px}
+}
+@media(max-width:1179px){
+  #v-home .side{position:static}
+}
+@media(max-width:600px){
+  #lib #cont.herom .slide{min-height:210px;padding:14px;gap:12px}
+  #lib #cont.herom .hero-cover{width:100px;min-width:100px;max-height:160px}
+  #v-home .statsrow .stc{min-height:100px;padding:12px}
+  #v-home .goalc .ringw,#v-home .goalc .ring{width:84px;height:84px}
+}
+@media(max-width:360px){
+  #lib #cont.herom .hero-cover{width:78px;min-width:78px}
+  #v-home .goalc{gap:9px}
+  #v-home .goalc .ringw,#v-home .goalc .ring{width:72px;height:72px}
+}
+@media(prefers-reduced-motion:reduce){#v-home .card:hover,#v-home .stc:hover{transform:none!important;transition:none!important}}
+
+#dlg .library-notes-list{display:grid;gap:9px;max-height:min(64dvh,600px);overflow-y:auto;overscroll-behavior:contain;padding:3px}
+#dlg .library-notes-item{display:flex;flex-direction:column;gap:5px;text-align:left;width:100%;min-width:0;border:1px solid var(--line);background:var(--soft);border-radius:14px;padding:13px 15px}
+#dlg .library-notes-item strong{font-size:13px;white-space:normal;overflow-wrap:anywhere}
+#dlg .library-notes-item span{font-size:13px;line-height:1.5;font-weight:400;white-space:pre-wrap;overflow-wrap:anywhere}
+#dlg .library-notes-item:hover{border-color:var(--accent)}
+
+
+
+@media (max-width: 600px) {
+  #lib #cont.herom {
+    border-radius: 18px !important;
+  }
+  #lib #cont.herom::before {
+    width: 210px;
+    height: 210px;
+    right: -86px;
+    top: -96px;
+    opacity: .4;
+  }
+  #lib #cont.herom .car {
+    align-items: stretch;
+  }
+  #lib #cont.herom .slide {
+    min-height: 0 !important;
+    padding: 14px 14px 10px !important;
+    gap: 12px !important;
+    align-items: center;
+  }
+  #lib #cont.herom .hero-cover {
+    width: 90px !important;
+    min-width: 90px !important;
+    max-height: 138px !important;
+    align-self: center;
+    border-radius: 10px;
+  }
+  #lib #cont.herom .sb {
+    gap: 5px !important;
+    align-items: stretch;
+    justify-content: center;
+    min-width: 0;
+  }
+  #lib #cont.herom .hero-label {
+    font-size: 9px !important;
+    line-height: 1.25;
+    letter-spacing: .085em;
+  }
+  #lib #cont.herom .kick {
+    font-size: 10px !important;
+    line-height: 1.25;
+  }
+  #lib #cont.herom .sb h2 {
+    font-size: 17px !important;
+    line-height: 1.17 !important;
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+  #lib #cont.herom .sb .au {
+    font-size: 10.5px !important;
+    line-height: 1.3;
+  }
+  #lib #cont.herom .hero-progress {
+    gap: 5px !important;
+    margin-top: 2px !important;
+  }
+  #lib #cont.herom .hero-progress-line {
+    font-size: 10.5px !important;
+    line-height: 1.3;
+  }
+  #lib #cont.herom .hero-progress .mini {
+    height: 4px;
+  }
+  #lib #cont.herom .hero-progress .meta {
+    font-size: 10px !important;
+    line-height: 1.35;
+    min-height: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  #lib #cont.herom .sb .acts {
+    margin-top: 3px !important;
+    gap: 6px !important;
+  }
+  #lib #cont.herom .sb .acts .primary {
+    font-size: 11px !important;
+    padding: 8px 10px !important;
+    min-height: 36px !important;
+    line-height: 1.2;
+  }
+  #lib #cont.herom .hero-secondary {
+    display: none;
+  }
+  #lib #cont.herom .dots {
+    padding: 3px 0 9px !important;
+  }
+  #lib #cont.herom .carb {
+    display: none !important;
+  }
+}
+@media (max-width: 360px) {
+  #lib #cont.herom .slide {padding: 12px 11px 9px !important;gap: 10px !important;}
+  #lib #cont.herom .hero-cover {width: 76px !important;min-width: 76px !important;max-height: 124px !important;}
+  #lib #cont.herom .sb {gap: 4px !important;}
+  #lib #cont.herom .sb h2 {font-size: 15px !important;}
+  #lib #cont.herom .sb .acts .primary {padding: 7px 8px !important;font-size: 10.5px !important;}
+}
+
+
+
+
+#lib .skip-to-content {
+  position:fixed;top:8px;left:12px;z-index:1000;
+  transform:translateY(-180%);opacity:0;pointer-events:none;
+  border:2px solid var(--accent);border-radius:12px;
+  padding:10px 14px;background:var(--bg);color:var(--fg);
+  box-shadow:var(--shadow);font-size:14px;font-weight:700;
+}
+#lib .skip-to-content:focus-visible {
+  transform:translateY(0);opacity:1;pointer-events:auto;outline:2px solid var(--accent);outline-offset:3px;
+}
+#lib #mainContent:focus {outline:none;}
+#lib :is(.lector-rail button,#lbn button,#ltabs button,.card button,.side button),
+#cfg :is(button,select,input),#reader :is(button,input),#sheet :is(button,input,select) {
+  -webkit-tap-highlight-color:transparent;
+}
+#lib :is(.lector-rail button,#lbn button,#ltabs button,.card button,.side button):focus-visible,
+#cfg :is(button,select,input):focus-visible,
+#reader :is(button,input):focus-visible,
+#sheet :is(button,input,select):focus-visible {
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+@media (prefers-reduced-motion:reduce) {
+  #lib :is(.card,.slide,button,.glass),
+  #cfg :is(button,.card2),#reader :is(button,.pgw),#sheet,#menu,#dlg {
+    transition-duration:0.01ms!important;animation-duration:0.01ms!important;
+  }
+}

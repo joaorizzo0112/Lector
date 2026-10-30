@@ -1,0 +1,138 @@
+
+#reader #pg.sc .pgw{content-visibility:auto;contain-intrinsic-size:auto 700px}
+#cfg .app-offline-status{display:inline-block;max-width:100%;overflow-wrap:anywhere}
+#upd[role="status"]{max-width:min(100vw - 24px,540px)}
+@media(prefers-reduced-motion:reduce){#reader #pg.sc{scroll-behavior:auto}}
+
+
+
+
+
+
+
+
+.sr-only{
+  position:absolute!important;
+  width:1px!important;height:1px!important;
+  padding:0!important;margin:-1px!important;
+  overflow:hidden!important;clip:rect(0,0,0,0)!important;
+  white-space:nowrap!important;border:0!important;
+}
+
+#v-stats .analytics-tile{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  grid-template-rows:auto auto auto;
+  align-content:start;
+  gap:12px;
+  min-height:152px;
+}
+#v-stats .analytics-tile .metric-icon{align-self:start;justify-self:start}
+#v-stats .analytics-tile b{
+  display:block;
+  line-height:1.02;
+  margin:0;
+}
+#v-stats .analytics-tile span{
+  display:block;
+  margin-top:auto;
+}
+
+@media(max-width:800px){
+  #lib #v-lib,#lib #v-shelves,#lib #v-vocab,#lib #v-stats{padding-bottom:6px}
+}
+@media(max-width:600px){
+  #lib #v-lib .chips{
+    margin:0 0 12px!important;
+    padding:0 2px 4px!important;
+    overflow-x:auto;
+    overflow-y:hidden;
+    scroll-padding-inline:2px;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  #lib #v-lib .chips::-webkit-scrollbar{display:none}
+  #lib #v-lib .chips .chip:first-child{margin-left:0!important}
+  #lib #v-lib .chips .chip:last-child{margin-right:2px}
+
+  #v-stats .analytics-tile{
+    min-height:136px;
+    gap:10px;
+  }
+}
+
+
+
+
+
+
+#dlg section.lector-trash-dialog,
+#dlg section.lector-cloud-dialog{
+  height:auto!important;
+  min-height:0!important;
+  max-height:none;
+  flex:initial;
+  width:100%;
+  min-width:0;
+}
+#dlg:has(.lector-trash-dialog),
+#dlg:has(.lector-cloud-dialog){
+  overflow-x:hidden;
+  overflow-y:auto;
+  scrollbar-width:thin;
+  overscroll-behavior:contain;
+}
+#dlg .lector-trash-dialog{gap:13px}
+#dlg .lector-trash-dialog .lector-dialog-hint{margin:0 0 3px}
+#dlg .lector-trash-list{min-height:0;max-height:min(42dvh,360px);overflow-y:auto}
+#dlg .lector-trash-item{min-width:0;max-width:100%}
+#dlg .lector-trash-actions{min-width:0}
+
+
+
+#v-stats .analytics-highlights{align-items:stretch}
+#v-stats .analytics-tile{
+  min-height:137px;
+  padding:16px 18px;
+  grid-template-rows:34px auto auto;
+  align-content:start;
+  align-items:start;
+  gap:8px;
+}
+#v-stats .analytics-tile .metric-icon{width:34px;height:34px}
+#v-stats .analytics-tile b{font-size:clamp(22px,2.15vw,30px);line-height:1.12}
+#v-stats .analytics-tile span{margin-top:0;line-height:1.4}
+
+@media(max-width:600px){
+
+
+  #lib #v-lib #coll{align-items:center;gap:8px;margin-bottom:12px}
+  #lib #v-lib #coll .sh{margin:0}
+  #lib #v-lib #chips{
+    margin:0 0 14px!important;
+    padding:2px 1px 4px!important;
+    scroll-padding-left:1px;
+  }
+  #lib #v-lib #chips .chip{scroll-snap-align:none}
+
+  #v-stats .analytics-tile{min-height:130px;padding:14px;gap:7px}
+  #v-stats .analytics-tile b{font-size:clamp(21px,5.6vw,28px)}
+
+
+
+  #dlg:has(.lector-trash-dialog),
+  #dlg:has(.lector-cloud-dialog){
+    width:calc(100vw - 24px);
+    max-width:calc(100vw - 24px);
+    max-height:calc(100dvh - 32px);
+    margin:auto;
+    scrollbar-width:none;
+  }
+  #dlg:has(.lector-trash-dialog)::-webkit-scrollbar,
+  #dlg:has(.lector-cloud-dialog)::-webkit-scrollbar{width:0}
+  #dlg .lector-trash-policy{min-width:0}
+  #dlg .lector-trash-policy select{width:100%;max-width:100%;min-width:0}
+  #dlg .lector-trash-head{min-width:0;flex-wrap:wrap;gap:8px}
+  #dlg .lector-trash-head button{flex-shrink:0}
+  #dlg .lector-trash-list{max-height:min(40dvh,360px)}
+}

@@ -1,0 +1,105 @@
+
+
+
+
+#lib #v-stats.lector-stat-screen{
+  min-width:0;
+  row-gap:20px;
+  padding-top:4px;
+  padding-bottom:24px;
+}
+#lib #v-stats .lector-stat-heading{padding:8px 0 0}
+#lib #v-stats .lector-stat-heading h2{margin:7px 0 9px;line-height:1.16}
+#lib #v-stats .lector-stat-heading p{max-width:65ch;line-height:1.55}
+#lib #v-stats .grp>.lab{margin-bottom:10px}
+
+
+
+
+#lib #v-stats .lector-stat-overview>.card2{
+  padding:0!important;
+  margin:0;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  border-radius:0;
+}
+#lib #v-stats .lector-stat-overview .analytics-intro{
+  margin:0 0 16px;
+  max-width:78ch;
+  line-height:1.6;
+  opacity:.79;
+}
+#lib #v-stats .lector-stat-overview .analytics-highlights{
+  margin:0;
+  gap:12px;
+  align-items:stretch;
+}
+
+
+
+#lib #v-stats .analytics-tile{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-start;
+  min-width:0;
+  min-height:0;
+  gap:6px!important;
+  padding:15px 16px;
+  overflow-wrap:normal;
+}
+#lib #v-stats .analytics-tile .metric-icon{
+  display:grid;
+  place-items:center;
+  width:32px;
+  height:32px;
+  min-width:32px;
+  flex:0 0 32px;
+  margin:0 0 2px;
+}
+#lib #v-stats .analytics-tile .metric-icon svg{
+  width:19px;
+  height:19px;
+  min-width:19px;
+}
+#lib #v-stats .analytics-tile b{
+  display:block;
+  margin:0;
+  font-size:clamp(22px,2vw,29px);
+  line-height:1.12;
+  letter-spacing:-.025em;
+  font-variant-numeric:tabular-nums;
+  word-break:normal;
+  overflow-wrap:anywhere;
+}
+#lib #v-stats .analytics-tile span{
+  display:block;
+  margin:0!important;
+  font-size:12px;
+  line-height:1.4;
+  opacity:1;
+  overflow-wrap:break-word;
+}
+@media(max-width:700px){
+  #lib #v-stats.lector-stat-screen{
+    margin-inline:2px;
+    row-gap:18px;
+    padding-bottom:24px;
+  }
+  #lib #v-stats .lector-stat-heading{padding-top:8px}
+  #lib #v-stats .lector-stat-heading p{font-size:13px}
+  #lib #v-stats .lector-stat-overview .analytics-highlights{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+  }
+  #lib #v-stats .analytics-tile{
+    padding:13px 14px;
+    border-radius:16px;
+  }
+}
+@media(max-width:370px){
+  #lib #v-stats .lector-stat-overview .analytics-highlights{gap:10px}
+  #lib #v-stats .analytics-tile{padding:12px}
+  #lib #v-stats .analytics-tile b{font-size:22px}
+}

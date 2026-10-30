@@ -1,0 +1,10 @@
+
+
+
+#cfg .lector-cloud-settings .cloud-actions.cloud-actions-guest .lector-cloud-action,
+#dlg .lector-cloud-settings .cloud-actions.cloud-actions-guest .lector-cloud-action,
+.lector-cloud-settings .cloud-actions.cloud-actions-guest .lector-cloud-action {
+  grid-column:1 / -1;
+  width:100%;
+  min-width:0;
+}

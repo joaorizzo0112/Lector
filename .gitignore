@@ -1,0 +1,12 @@
+# Supabase
+supabase/
+
+# Configurações e credenciais
+.env
+.env.*
+!.env.example
+
+# Arquivos locais
+node_modules/
+.DS_Store
+Thumbs.db

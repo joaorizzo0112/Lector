@@ -1,0 +1,27 @@
+
+
+
+
+
+
+
+#lib #v-lib #chips button.chip.glass.on {
+  background: var(--accent) !important;
+  color: var(--accent-fg, #fff) !important;
+  border-color: var(--accent) !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+#lib #v-lib #chips button.chip.glass.on:hover {
+  background: var(--accent-dark, var(--accent)) !important;
+  color: var(--accent-dark-fg, var(--accent-fg, #fff)) !important;
+  border-color: var(--accent-dark, var(--accent)) !important;
+  filter: none;
+}
+#lib #v-lib #chips button.chip.glass.on:active {
+  background: var(--accent-dark, var(--accent)) !important;
+  color: var(--accent-dark-fg, var(--accent-fg, #fff)) !important;
+}
+#lib #v-lib #chips button.chip.glass.on:focus-visible {
+  outline-offset: 3px;
+}

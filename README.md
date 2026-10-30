@@ -1,5 +1,7 @@
 <h1><img src="./icons/icon-192.png" alt="Ícone do LECTOR" width="44"> LECTOR</h1>
 
+[![Linguagem: JavaScript](https://img.shields.io/badge/LANGUAGE-JavaScript-F7DF1E?style=flat-square&labelColor=353535)](https://developer.mozilla.org/docs/Web/JavaScript) ![Frontend: HTML5 e CSS3](https://img.shields.io/badge/FRONTEND-HTML5%20%26%20CSS3-3776AB?style=flat-square&labelColor=353535) ![Plataforma: Web / PWA](https://img.shields.io/badge/PLATFORM-Web%20%2F%20PWA-4472C4?style=flat-square&labelColor=353535) [![Licença: MIT](https://img.shields.io/badge/LICENSE-MIT-4C9A2A?style=flat-square&labelColor=353535)](LICENSE) ![Formatos: EPUB, PDF, CBZ, TXT](https://img.shields.io/badge/FORMATS-EPUB%20%7C%20PDF%20%7C%20CBZ%20%7C%20TXT-7952B3?style=flat-square&labelColor=353535)
+
 **Aplicação web para leitura digital, organização de bibliotecas pessoais e acompanhamento de hábitos de leitura.**
 
 O Lector é um projeto de leitor digital desenvolvido como uma *Progressive Web App* (PWA). Reúne recursos de leitura, gestão de acervo e acompanhamento de progresso em uma interface responsiva e personalizável, priorizando o controle dos dados pelo usuário.

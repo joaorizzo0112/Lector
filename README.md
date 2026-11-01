@@ -78,6 +78,6 @@ A persistência local depende das condições de armazenamento do navegador. Por
 
 ## Autoria
 
-Desenvolvido e mantido por **[@joaorizzo0112](https://github.com/joaorizzo0112)**.
+Desenvolvido por **[@joaorizzo0112](https://github.com/joaorizzo0112)* e mantido por **[@joaorizzo0112](https://github.com/joaorizzo0112)* & **[@iamzeus7](https://github.com/iamzeus7)* *.
 
 As bibliotecas de terceiros permanecem sujeitas às licenças dos respectivos autores. O projeto não distribui obras protegidas por direitos autorais.
